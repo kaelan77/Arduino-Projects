@@ -1,4 +1,4 @@
-# Phase 2 – Radar Scanning System
+# Phase 2 – Radar Scanning System with servo and buzzer
 
 ## Overview
 
