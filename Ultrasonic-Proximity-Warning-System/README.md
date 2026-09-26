@@ -1,184 +1,143 @@
-# Ultrasonic Proximity Warning System
+# Phase 1 - Distance Measurement and Visual Warning System
 
-## Phase 1 – Distance Measurement and Visual Warning System
+## Objective
 
-### Project Overview
+The objective of Phase 1 was to develop an ultrasonic proximity warning system capable of detecting nearby objects and providing visual feedback through a three-stage LED warning system.
 
-The aim of this project was to design and build an ultrasonic proximity warning system using an Arduino Uno and HC-SR04 ultrasonic sensor. The system measures the distance to nearby objects and provides visual feedback using three LEDs.
-
-
----
-
-## Objectives
-
-- Measure object distance using ultrasonic sensing.
-- Process sensor data using Arduino.
-- Implement a three-stage visual warning system.
-- Develop practical circuit design and breadboard wiring skills.
-- Gain experience debugging hardware and software faults.
+The project was designed to introduce the fundamentals of embedded systems, sensor integration, electronic circuit construction, and hardware debugging.
 
 ---
 
 ## Components Used
 
-| Component | Purpose |
-|------------|------------|
-| Arduino Uno R3 | Main microcontroller |
-| HC-SR04 Ultrasonic Sensor | Distance measurement |
-| Red LED | Close-range warning |
-| Yellow LED | Medium-range warning |
-| Green LED | Safe distance indication |
-| 330 Ω Resistors | Current limiting |
-| Breadboard | Circuit prototyping |
-| Jumper Wires | Electrical connections |
+- Arduino Uno R3
+- HC-SR04 Ultrasonic Sensor
+- Breadboard
+- Jumper Wires
+- Green LED
+- Yellow LED
+- Red LED
+- 3 × 330 Ω Resistors
 
 ---
 
-## System Operation
+## How the Sensor Works
 
-The Arduino sends a 10 µs trigger pulse to the HC-SR04 sensor.
+The Arduino sends a short pulse to the TRIG pin of the HC-SR04 ultrasonic sensor.
 
-The sensor emits an ultrasonic sound wave and listens for the reflected echo. The time taken for the sound wave to return is measured using the `pulseIn()` function.
+The sensor emits an ultrasonic sound wave which travels until it strikes an object and reflects back towards the sensor.
 
-Distance is then calculated using:
+The ECHO pin remains HIGH for the duration of the round trip. Using the `pulseIn()` function, the Arduino measures this time and calculates the distance to the object.
 
-Distance = (Time × Speed of Sound) / 2
+The measured distance is then used to determine which warning LED should be activated.
 
-The measured distance determines which LED is illuminated:
+---
 
-| Distance | Indicator |
-|------------|------------|
+## Breadboard Circuit
+
+<img src="Images/p1breadboard_led_circuit.jpeg" width="600">
+
+The circuit was assembled on a breadboard using three LEDs connected through 330 Ω current-limiting resistors. The LEDs provide visual feedback depending on the measured distance.
+
+---
+
+## HC-SR04 Sensor Connections
+
+<img src="Images/p1hc_sr04_pinout.jpeg" width="500">
+
+The HC-SR04 ultrasonic sensor was connected to the Arduino Uno using four connections:
+
+- VCC → 5V
+- GND → Ground
+- TRIG → Digital Output Pin
+- ECHO → Digital Input Pin
+
+The sensor measures distance by transmitting an ultrasonic pulse and calculating the time taken for the echo to return.
+
+---
+
+## Arduino Pin Assignments
+
+<img src="Images/p1arduino_connections.jpeg" width="500">
+
+The Arduino Uno controls the LEDs and processes the distance data received from the ultrasonic sensor.
+
+Distance measurements are continuously updated and compared against predefined thresholds to determine the appropriate warning level.
+
+---
+
+## Warning Logic
+
+| Distance | LED Indicator |
+|-----------|-----------|
 | Greater than 20 cm | Green LED |
 | 10–20 cm | Yellow LED |
 | Less than 10 cm | Red LED |
 
----
-
-## Hardware Implementation
-
-### Breadboard Circuit
-
-![Breadboard Circuit](Images/p1_breadboard_led_circuit.jpeg)
-
-The circuit was constructed on a breadboard using three LEDs connected through 330 Ω current-limiting resistors.
+This traffic-light warning system provides an intuitive visual indication of object proximity.
 
 ---
 
-### HC-SR04 Sensor Connections
+## Problems Encountered
 
-![Sensor Connections](Images/p1_sensor_connections.jpeg)
-
-The HC-SR04 sensor was connected using:
-
-- VCC → 5V
-- GND → Ground
-- TRIG → Arduino Digital Output
-- ECHO → Arduino Digital Input
-
----
-
-### Arduino Pin Assignments
-
-![Arduino Connections](Images/p1_arduino_pin_assignments.jpeg)
-
-The LEDs were connected to dedicated digital output pins while the ultrasonic sensor used separate TRIG and ECHO connections.
-
----
-
-## Software Implementation
-
-The Arduino program continuously:
-
-1. Triggers the ultrasonic sensor.
-2. Measures echo return time.
-3. Calculates distance.
-4. Determines the warning level.
-5. Activates the appropriate LED.
-
-The code can be found in the `Code` directory.
-
----
-
-## Challenges and Solutions
-
-### Breadboard Wiring
+### Breadboard Connectivity
 
 **Issue**
 
-The LEDs initially failed to illuminate despite the program compiling successfully.
-
-**Investigation**
-
-The fault was traced to an incorrect understanding of breadboard row connectivity and power rail distribution.
+The LEDs initially failed to illuminate despite the code compiling successfully.
 
 **Solution**
 
-The circuit was rebuilt after reviewing breadboard internal connections.
+After investigating the circuit, I realised I did not fully understand how breadboard rows and power rails were connected internally.
 
-**Outcome**
+**Learning Outcome**
 
-Improved understanding of circuit construction and troubleshooting.
+Developed a stronger understanding of breadboard architecture and circuit construction.
 
 ---
 
-### LED and Resistor Configuration
+### LED and Resistor Wiring
 
 **Issue**
 
-Incorrect LED and resistor placement prevented current from flowing through the circuit.
+Incorrect placement of LEDs and resistors prevented current from flowing through the circuit.
 
 **Solution**
 
-The circuit was redesigned to ensure a complete path from the Arduino output pin through the resistor and LED to ground.
+The circuit was redesigned to ensure a complete electrical path from the Arduino output pin, through the resistor and LED, and back to ground.
 
-**Outcome**
+**Learning Outcome**
 
-Developed a stronger understanding of current flow and component placement.
+Improved understanding of current flow, polarity, grounding, and circuit design.
 
 ---
 
-## Engineering Skills Developed
+## Skills Developed
 
-- Breadboard prototyping
-- Circuit debugging
-- Sensor integration
-- Embedded programming
-- Digital I/O control
-- Distance measurement systems
-- Hardware fault diagnosis
-- Engineering documentation
+- Arduino Programming
+- Embedded Systems Development
+- Electronic Circuit Construction
+- Sensor Integration
+- Hardware Debugging
+- Breadboard Prototyping
+- Technical Documentation
+- Engineering Problem Solving
 
 ---
 
 ## Real-World Applications
 
 - Vehicle parking assistance systems
-- Mobile robotics
-- Warehouse safety monitoring
+- Autonomous robotics
+- Industrial safety monitoring
+- Warehouse obstacle detection
 - Intruder detection systems
-- Industrial safety zones
 - Smart building automation
 
 ---
 
-## Future Development
+## Outcome
 
-### Phase 2
+Phase 1 successfully demonstrated accurate distance measurement and visual proximity indication using a three-stage LED warning system.
 
-- Add audible warning buzzer.
-- Integrate servo motor scanning.
-- Improve obstacle awareness.
-
-### Phase 3
-
-- Add OLED/LCD display.
-- Display live distance measurements.
-- Implement enhanced warning logic.
-
----
-
-## Key Learning Outcomes
-
-This project provided practical experience in combining electronics and software to create a functioning embedded system.
-
-I developed a deeper understanding of ultrasonic sensing, digital electronics, circuit construction, Arduino programming, and systematic engineering problem-solving. The project also strengthened my ability to identify faults, test solutions, and incrementally improve a design through multiple development stages.
+The completed prototype provided a strong foundation for Phase 2, where additional functionality including a servo motor and audible buzzer was integrated to improve obstacle awareness and system capability.
