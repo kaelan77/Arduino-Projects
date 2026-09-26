@@ -6,7 +6,6 @@
 
 The aim of this project was to design and build an ultrasonic proximity warning system using an Arduino Uno and HC-SR04 ultrasonic sensor. The system measures the distance to nearby objects and provides visual feedback using three LEDs.
 
-The project was completed as the first stage of a larger obstacle detection system that will later incorporate an audible buzzer and servo-controlled scanning mechanism.
 
 ---
 
