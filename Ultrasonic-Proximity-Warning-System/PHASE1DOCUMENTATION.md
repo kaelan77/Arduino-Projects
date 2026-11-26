@@ -1,10 +1,8 @@
-# Phase 1 - Distance Measurement and Visual Warning System
+# Phase 1 - Distance Measurement and LED Warning System
 
 ## Objective
 
-The objective of Phase 1 was to develop an ultrasonic proximity warning system capable of detecting nearby objects and providing visual feedback through a three-stage LED warning system.
-
-The project was designed to introduce the fundamentals of embedded systems, sensor integration, electronic circuit construction, and hardware debugging.
+Build an ultrasonic proximity sensor that measures distance and warns with a three-stage traffic-light LED system. This phase was about learning the basics of embedded systems: sensors, circuits and debugging hardware.
 
 ---
 
@@ -70,9 +68,9 @@ Distance measurements are continuously updated and compared against predefined t
 
 | Distance | LED Indicator |
 |-----------|-----------|
-| Greater than 20 cm | Green LED |
-| 10–20 cm | Yellow LED |
-| Less than 10 cm | Red LED |
+| Greater than 20 cm | Green - safe |
+| 10–20 cm | Yellow - caution|
+| Less than 10 cm | Red - danger |
 
 This traffic-light warning system provides an intuitive visual indication of object proximity.
 
@@ -112,18 +110,6 @@ Improved understanding of current flow, polarity, grounding, and circuit design.
 
 ---
 
-## Skills Developed
-
-- Arduino Programming
-- Embedded Systems Development
-- Electronic Circuit Construction
-- Sensor Integration
-- Hardware Debugging
-- Breadboard Prototyping
-- Technical Documentation
-- Engineering Problem Solving
-
----
 
 ## Real-World Applications
 
