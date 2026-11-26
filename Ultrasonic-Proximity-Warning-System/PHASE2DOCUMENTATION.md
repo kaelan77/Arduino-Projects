@@ -59,10 +59,10 @@ Working with the servo also introduced me to concepts such as scan resolution, s
 
 ## My Contributions
 
--Mounted the sensor on the servo and wired the buzzer.
--Programmed the scanning sweep and the buzzer warnings.
--Set up serial communication between the Arduino and Processing.
--Tested and calibrated the system, and fixed the false detections.
+- Mounted the sensor on the servo and wired the buzzer.
+- Programmed the scanning sweep and the buzzer warnings.
+- Set up serial communication between the Arduino and Processing.
+- Tested and calibrated the system, and fixed the false detections.
 
 Note: the radar display is adapted from an existing Processing framework. I modified it to read my Arduino's data. The hardware, Arduino code, serial communication and calibration are my own work.
 
@@ -103,7 +103,7 @@ My work focused on the hardware integration, serial communication, system calibr
 
 ## What I'd do differently
 
--Check the surroundings for reflective objects before setting the sweep range, instead of fixing false detections afterwards.
--Agree the serial data format between the Arduino and the display before writing either side.
--Test a narrow sweep first and widen it gradually, rather than starting as wide as possible.
+- Check the surroundings for reflective objects before setting the sweep range, instead of fixing false detections afterwards.
+- Agree the serial data format between the Arduino and the display before writing either side.
+- Test a narrow sweep first and widen it gradually, rather than starting as wide as possible.
 
